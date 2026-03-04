@@ -13,10 +13,27 @@ Principle: The liquid enters a cylindrical stainless steel Wedge Wire element. S
 
 **Identify these core components before operation:**
 
+---
+
+## 🖼️ 2. Technical Illustrations
+
 <p align="center">
-<img src="ascf_concept.jpg" width="700" alt="ASCF Operational Concept">
-<em><b>Figure 1:</b> Conceptual view of the internal scanner and flow path.</em>
-<sup style="color: gray;">
+  <img src="ascf_concept.jpg" width="600" alt="ASCF Overall Anatomy">
+  <br>
+  <em><b>Figure 1:</b> Overall System Anatomy and Flow Path.</em>
+</p>
+
+<br>
+
+<p align="center">
+  <img src="ascf_ascf_1.jpg" width="600" alt="ASCF Internal Detail">
+  <br>
+  <em><b>Figure 2:</b> Close-up of Internal Scanner and Wedge Wire Element.</em>
+  <br>
+  <sup style="color: gray;">*Note: Illustrations for conceptual visualization only.*</sup>
+</p>
+
+---
 
 * **Filter Element:** Stainless steel wedge wire mesh.
 * **DP Switch:** Sensor measuring pressure difference ($P_{in} - P_{out}$).
