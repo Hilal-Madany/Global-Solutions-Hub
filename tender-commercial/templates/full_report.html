@@ -2,53 +2,59 @@
 <html>
 <head>
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 40px; color: #333; }
-        .header-table { width: 100%; border: 2px solid #000; margin-bottom: 20px; }
-        .header-table td { padding: 10px; border: 1px solid #000; font-weight: bold; text-align: center; }
-        .section-title { background: #003366; color: white; padding: 8px; font-weight: bold; margin: 20px 0 10px 0; border-radius: 4px; }
-        table.data-table { width: 100%; border-collapse: collapse; }
-        table.data-table th, table.data-table td { border: 1px solid #ccc; padding: 10px; text-align: left; }
-        table.data-table th { background-color: #f2f2f2; width: 35%; }
-        .score-card { border: 2px dashed #28a745; background: #f9fff9; padding: 20px; margin-top: 30px; text-align: center; }
-        .footer-sig { margin-top: 60px; display: flex; justify-content: space-between; }
+        body { font-family: 'Arial', sans-serif; padding: 10px; color: #000; }
+        .main-container { border: 3px solid #000; padding: 20px; }
+        .header-table { width: 100%; border-collapse: collapse; margin-bottom: 15px; }
+        .header-table td { border: 1px solid #000; padding: 10px; text-align: center; font-weight: bold; font-size: 14px; }
+        .section-header { background-color: #333; color: #fff; padding: 6px; font-weight: bold; margin-top: 20px; text-transform: uppercase; }
+        table.data-grid { width: 100%; border-collapse: collapse; margin-top: 5px; }
+        table.data-grid th, table.data-grid td { border: 1px solid #000; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; width: 40%; }
+        .score-box { border: 2px solid #000; padding: 15px; text-align: center; font-size: 20px; font-weight: bold; margin-top: 20px; }
+        .footer-sec { margin-top: 60px; display: flex; justify-content: space-between; }
     </style>
 </head>
 <body>
-    <table class="header-table">
-        <tr>
-            <td rowspan="2" width="20%"><img src="https://via.placeholder.com/80" alt="Logo"></td>
-            <td width="60%">VENDOR ASSESSMENT REPORT</td>
-            <td width="20%">FORM NO: F-060-01</td>
-        </tr>
-        <tr>
-            <td>ACCUMEN TECHNO MARKETING SOLUTION</td>
-            <td>REV: 01</td>
-        </tr>
-    </table>
+    <div class="main-container">
+        <table class="header-table">
+            <tr>
+                <td width="25%">FORM NO: F-060-01</td>
+                <td width="50%"><h2 style="margin:0;">VENDOR / SUB-VENDOR ASSESSMENT SHEET</h2></td>
+                <td width="25%">Date: {{ date }}</td>
+            </tr>
+        </table>
 
-    <div class="section-title">1. COMPANY PROFILE</div>
-    <table class="data-table">
-        <tr><th>Supplier Name</th><td>{{ d.name }}</td></tr>
-        <tr><th>Registered Office</th><td>{{ d.reg_office }}</td></tr>
-        <tr><th>Works Address</th><td>{{ d.works_addr }}</td></tr>
-        <tr><th>MSME Registration</th><td>{{ d.msme_type }} (No: {{ d.msme_no }})</td></tr>
-    </table>
+        <div class="section-header">A. ORGANISATIONAL SOUNDNESS</div>
+        <table class="data-grid">
+            <tr><th>Name of Supplier / Sub-Vendor</th><td>{{ d.name }}</td></tr>
+            <tr><th>Registered Office</th><td>{{ d.reg_office }}</td></tr>
+            <tr><th>Factory / Works Address</th><td>{{ d.works_addr }}</td></tr>
+            <tr><th>Contact Details</th><td>Tel: {{ d.tel }} | Email: {{ d.email }}</td></tr>
+        </table>
 
-    <div class="section-title">2. TECHNICAL & MANUFACTURING</div>
-    <table class="data-table">
-        <tr><th>In-house Testing</th><td>{{ d.inhouse_test }}</td></tr>
-        <tr><th>Machinery Details</th><td>{{ d.machinery }}</td></tr>
-        <tr><th>Skilled Workforce</th><td>{{ d.skilled_workers }} Personnel</td></tr>
-    </table>
+        <div class="section-header">B. REGISTRATION DETAILS</div>
+        <table class="data-grid">
+            <tr><th>PAN / TAN NO.</th><td>{{ d.pan }}</td></tr>
+            <tr><th>GST / TIN NO.</th><td>{{ d.gst }}</td></tr>
+            <tr><th>MSME Registration</th><td>{{ d.msme_no }} (Category: {{ d.msme_type }})</td></tr>
+        </table>
 
-    <div class="score-card">
-        <h2 style="margin:0; color: #155724;">FINAL ASSESSMENT SCORE: {{ d.score }}%</h2>
-        <p>Status: <strong>PROVISIONALLY QUALIFIED</strong></p>
-    </div>
+        <div class="section-header">C. TECHNICAL & MANUFACTURING CAPABILITY</div>
+        <table class="data-grid">
+            <tr><th>Area / Connected Power</th><td>{{ d.area }} Sq. m. / {{ d.power }} kVA</td></tr>
+            <tr><th>Manpower (Grad/Dip/Skilled)</th><td>{{ d.grad_staff }} / {{ d.diploma_staff }} / {{ d.skilled_workers }}</td></tr>
+            <tr><th>Major Machinery</th><td>{{ d.machinery }}</td></tr>
+            <tr><th>In-house Testing Facility</th><td>{{ d.inhouse_test }}</td></tr>
+        </table>
 
-    <div class="footer-sig">
-        <div style="float:left; border-top: 1px solid #000; width: 200px; text-align: center;">Verified by System</div>
-        <div style="float:right; border-top: 1px solid #000; width: 200px; text-align: center;">Authorized Signatory Seal</div>
+        <div class="score-box">
+            TOTAL COMPLIANCE SCORE: {{ d.score }} / 100
+        </div>
+
+        <div class="footer-sec">
+            <div style="text-align: center; width: 250px; border-top: 1px solid #000;">Prepared By (System)</div>
+            <div style="text-align: center; width: 250px; border-top: 1px solid #000;">Authorized Signatory / Seal</div>
+        </div>
     </div>
 </body>
 </html>
